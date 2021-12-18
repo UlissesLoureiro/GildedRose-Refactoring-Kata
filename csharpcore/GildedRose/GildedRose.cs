@@ -1,14 +1,33 @@
-﻿using System.Collections.Generic;
+﻿using GildedRose.Models;
+using GildedRose.Services.Contracts;
+using System.Collections.Generic;
 
 namespace GildedRoseKata
 {
     public class GildedRose
     {
-        IList<Item> Items;
+        private readonly IList<Item> Items;
+        private readonly IList<GenericItem> genericItems;
+
+
         public GildedRose(IList<Item> Items)
         {
             this.Items = Items;
         }
+
+        public GildedRose(IList<GenericItem> items)
+        {
+            this.genericItems = items;
+        }
+        public void UpdateQualityNewVersion<T>(IList<T> itemList) where T : GenericItem
+        {
+            foreach(var item in itemList)
+            {
+              item.UpdateItem(item);
+            }
+        }
+
+
 
         public void UpdateQuality()
         {

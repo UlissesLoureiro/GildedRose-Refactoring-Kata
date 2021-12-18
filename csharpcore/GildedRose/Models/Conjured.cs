@@ -5,26 +5,12 @@ using System;
 
 namespace GildedRose.Models
 {
-    public class Conjured : Item, IItem<Conjured>
+    public class Conjured : GenericItem
     {
-        private readonly GenericHandler _handler;
-
-        public Conjured(string name, int sellIn, int quality)
+        public Conjured(int sellIn, int quality)
+            : base("Conjured", sellIn, quality)
         {
-            _handler = new GenericHandler();
-            Name = name;
-            Quality = quality;
-            SellIn = sellIn;
-        }
-
-
-        public Conjured UpdateItem(Conjured item)
-        {
-            _handler.UpdateQuality(ref item);
-            _handler.CheckQualityMaxValue(ref item);
-            item.CheckQualityMinValue();
-            item.UpdateSellIn();
-            return item;
+            _handler = new AgedBrieHandler();
         }
     }
 }

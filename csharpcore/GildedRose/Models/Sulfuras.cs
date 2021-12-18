@@ -4,20 +4,16 @@ using GildedRoseKata;
 
 namespace GildedRose.Models
 {
-    public class Sulfuras : Item, IItem<Sulfuras>
+    public class Sulfuras : GenericItem
     {
-        private readonly SulfurasHandler _handler;
 
         public Sulfuras(int sellIn, int quality)
+          : base("Sulfuras, Hand of Ragnaros", sellIn, quality)
         {
-            _handler = new SulfurasHandler();
-            Name = "Sulfuras, Hand of Ragnaros";
-            Quality = quality;
-            SellIn = sellIn;
+            _handler = new AgedBrieHandler();
         }
 
-
-        public Sulfuras UpdateItem(Sulfuras item)
+        public override T UpdateItem<T>(T item)
         {
             return item;
         }

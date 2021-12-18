@@ -3,8 +3,8 @@
 
 namespace GildedRose.Services.Contracts
 {
-    public interface IItem<T> where T : Item
+    public interface IItem
     {
-        public T UpdateItem(T item);
+        public T UpdateItem<T>(T item) where T : Item;
     }
 }

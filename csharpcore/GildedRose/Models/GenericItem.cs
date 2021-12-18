@@ -4,9 +4,9 @@ using GildedRoseKata;
 
 namespace GildedRose.Models
 {
-    public class GenericItem : Item, IItem<GenericItem>
+    public class GenericItem : Item, IItem
     {
-        private readonly GenericHandler _handler;
+        protected GenericHandler _handler { get; set; }
 
         public GenericItem(string name, int sellIn, int quality)
         {
@@ -17,7 +17,8 @@ namespace GildedRose.Models
         }
 
 
-        public GenericItem UpdateItem(GenericItem item)
+
+        public virtual T UpdateItem<T>(T item) where T : Item
         {
             _handler.UpdateQuality(ref item);
             _handler.CheckQualityMaxValue(ref item);

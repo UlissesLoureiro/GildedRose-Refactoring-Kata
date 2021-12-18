@@ -1,31 +1,14 @@
-﻿using GildedRose.Services.Contracts;
-using GildedRose.Services.Implementations;
-using GildedRoseKata;
+﻿using GildedRose.Services.Implementations;
 
 namespace GildedRose.Models
 {
-    public class AgedBrie : Item, IItem<AgedBrie>
+    public class AgedBrie : GenericItem
     {
-        private readonly AgedBrieHandler _handler;
-
         public AgedBrie(int sellIn, int quality)
+            : base("Aged Brie", sellIn, quality)
         {
             _handler = new AgedBrieHandler();
-            Name = "Aged Brie";
-            Quality = quality;
-            SellIn = sellIn;
         }
-
-        //return the object for unit testing purposes
-        public AgedBrie UpdateItem(AgedBrie item)
-        {
-            _handler.UpdateQuality(ref item);
-            _handler.CheckQualityMaxValue(ref item);
-            item.CheckQualityMinValue();
-            item.UpdateSellIn();
-            return item;
-        }
-
 
     }
 }
