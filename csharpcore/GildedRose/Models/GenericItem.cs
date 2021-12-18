@@ -4,19 +4,19 @@ using GildedRoseKata;
 
 namespace GildedRose.Models
 {
-    public class BackstagePasses : Item, IItem
+    public class GenericItem : Item, IItem
     {
-        private readonly BackstagePassesHandler _handler;
+        private readonly GenericHandler _handler;
 
-        public BackstagePasses(int sellIn, int quality)
+        public GenericItem(string name, int sellIn, int quality)
         {
-            _handler = new BackstagePassesHandler();
-            Name = "Backstage passes to a TAFKAL80ETC concert";
+            _handler = new GenericHandler();
+            Name = name;
             Quality = quality;
             SellIn = sellIn;
         }
 
-        //return the object for unit testing purposes
+
         public Item UpdateItem(Item item)
         {
             _handler.UpdateQuality(ref item);
@@ -25,6 +25,5 @@ namespace GildedRose.Models
             item.UpdateSellIn();
             return item;
         }
-
     }
 }
