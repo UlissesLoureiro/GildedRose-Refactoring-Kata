@@ -4,7 +4,7 @@ using GildedRoseKata;
 
 namespace GildedRose.Models
 {
-    public class BackstagePasses : Item, IItem
+    public class BackstagePasses : Item, IItem<BackstagePasses>
     {
         private readonly BackstagePassesHandler _handler;
 
@@ -17,7 +17,7 @@ namespace GildedRose.Models
         }
 
         //return the object for unit testing purposes
-        public Item UpdateItem(Item item)
+        public BackstagePasses UpdateItem(BackstagePasses item)
         {
             _handler.UpdateQuality(ref item);
             _handler.CheckQualityMaxValue(ref item);

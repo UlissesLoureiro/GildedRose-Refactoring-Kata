@@ -4,7 +4,7 @@ using GildedRoseKata;
 
 namespace GildedRose.Models
 {
-    public class AgedBrie : Item, IItem
+    public class AgedBrie : Item, IItem<AgedBrie>
     {
         private readonly AgedBrieHandler _handler;
 
@@ -17,7 +17,7 @@ namespace GildedRose.Models
         }
 
         //return the object for unit testing purposes
-        public Item UpdateItem(Item item)
+        public AgedBrie UpdateItem(AgedBrie item)
         {
             _handler.UpdateQuality(ref item);
             _handler.CheckQualityMaxValue(ref item);

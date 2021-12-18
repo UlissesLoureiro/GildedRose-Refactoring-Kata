@@ -11,16 +11,15 @@ namespace GildedRose.Services.Implementations
         {
             QualityFactor = qualityFactor;
         }
-        public virtual void CheckQualityMaxValue(ref Item item)
+        public virtual void CheckQualityMaxValue<T>(ref T item) where T : Item
         {
             if (item.Quality > 50) item.Quality = 50;
         }
 
 
-        public virtual void UpdateQuality(ref Item item)
+        public virtual void UpdateQuality<T>(ref T item) where T : Item
         {
             item.Quality = item.Quality - QualityFactor;
-
         }
     }
 }

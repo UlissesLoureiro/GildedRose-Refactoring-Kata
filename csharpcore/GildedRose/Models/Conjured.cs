@@ -5,7 +5,7 @@ using System;
 
 namespace GildedRose.Models
 {
-    public class Conjured : Item, IItem
+    public class Conjured : Item, IItem<Conjured>
     {
         private readonly GenericHandler _handler;
 
@@ -18,7 +18,7 @@ namespace GildedRose.Models
         }
 
 
-        public Item UpdateItem(Item item)
+        public Conjured UpdateItem(Conjured item)
         {
             _handler.UpdateQuality(ref item);
             _handler.CheckQualityMaxValue(ref item);

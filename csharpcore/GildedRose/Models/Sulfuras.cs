@@ -4,7 +4,7 @@ using GildedRoseKata;
 
 namespace GildedRose.Models
 {
-    public class Sulfuras : Item, IItem
+    public class Sulfuras : Item, IItem<Sulfuras>
     {
         private readonly SulfurasHandler _handler;
 
@@ -17,7 +17,7 @@ namespace GildedRose.Models
         }
 
 
-        public Item UpdateItem(Item item)
+        public Sulfuras UpdateItem(Sulfuras item)
         {
             return item;
         }
