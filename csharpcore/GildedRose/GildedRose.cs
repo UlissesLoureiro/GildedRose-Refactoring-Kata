@@ -19,11 +19,13 @@ namespace GildedRoseKata
         {
             this.genericItems = items;
         }
-        public void UpdateQualityNewVersion<T>(IList<T> itemList) where T : GenericItem
+        public void UpdateQualityNewVersion()
         {
-            foreach(var item in itemList)
+            if (genericItems is null) return;
+
+            foreach (IItem item in genericItems)
             {
-              item.UpdateItem(item);
+                item.UpdateItem();
             }
         }
 
