@@ -1,10 +1,17 @@
-﻿using GildedRoseKata;
+﻿using GildedRose.Models;
+using GildedRoseKata;
 
 
 namespace GildedRose.Services.Contracts
 {
-    public interface IItem
+    /// <summary>
+    /// Genric Item Handler interface
+    /// </summary>
+    public interface IItem 
     {
-        public T UpdateItem<T>(T item) where T : Item;
+        /// <summary>
+        /// 
+        /// </summary>
+        public void UpdateItem();
     }
 }
