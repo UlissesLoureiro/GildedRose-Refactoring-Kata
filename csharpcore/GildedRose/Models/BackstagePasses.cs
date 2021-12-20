@@ -10,7 +10,7 @@ namespace GildedRose.Models
         public BackstagePasses(int sellIn, int quality)
          : base("Backstage passes to a TAFKAL80ETC concert", sellIn, quality)
         {
-            _handler = new AgedBrieHandler();
+            _handler = new BackstagePassesHandler();
         }
     }
 }

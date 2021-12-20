@@ -10,12 +10,7 @@ namespace GildedRose.Models
         public Sulfuras(int sellIn, int quality)
           : base("Sulfuras, Hand of Ragnaros", sellIn, quality)
         {
-            _handler = new AgedBrieHandler();
-        }
-
-        public override T UpdateItem<T>(T item)
-        {
-            return item;
+            _handler = new SulfurasHandler();
         }
     }
 }

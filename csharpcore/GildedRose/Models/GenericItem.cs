@@ -8,6 +8,11 @@ namespace GildedRose.Models
     {
         protected GenericHandler _handler { get; set; }
 
+        public GenericItem()
+        {
+            _handler = new GenericHandler();
+        }
+
         public GenericItem(string name, int sellIn, int quality)
         {
             _handler = new GenericHandler();
@@ -16,15 +21,22 @@ namespace GildedRose.Models
             SellIn = sellIn;
         }
 
-
-
-        public virtual T UpdateItem<T>(T item) where T : Item
+        public void UpdateItem()
         {
-            _handler.UpdateQuality(ref item);
-            _handler.CheckQualityMaxValue(ref item);
-            item.CheckQualityMinValue();
-            item.UpdateSellIn();
-            return item;
+            var clone = new Item();
+
+            clone.Name = this.Name;
+            clone.Quality = this.Quality;
+            clone.SellIn = this.SellIn;
+
+            _handler.UpdateQuality(ref clone);
+            _handler.CheckQualityMaxValue(ref clone);
+            _handler.CheckQualityMinValue(ref clone);
+            _handler.UpdateSellIn(ref clone);
+
+            this.Name = clone.Name;
+            this.Quality = clone.Quality;
+            this.SellIn = clone.SellIn;
         }
     }
 }

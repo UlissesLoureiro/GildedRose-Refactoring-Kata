@@ -10,7 +10,7 @@ namespace GildedRose.Models
         public Conjured(int sellIn, int quality)
             : base("Conjured", sellIn, quality)
         {
-            _handler = new AgedBrieHandler();
+            _handler = new ConjuredHandler();
         }
     }
 }
