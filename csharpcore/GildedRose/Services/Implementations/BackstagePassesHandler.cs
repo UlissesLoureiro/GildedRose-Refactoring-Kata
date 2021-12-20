@@ -5,7 +5,7 @@ namespace GildedRose.Services.Implementations
 {
     public class BackstagePassesHandler : GenericHandler
     {
-        public override void UpdateQuality<T>(ref T item)
+        public override void UpdateQuality(ref Item item)
         {
             if (item.SellIn <= 0)
             {
